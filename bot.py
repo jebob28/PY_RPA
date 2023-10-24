@@ -22,12 +22,6 @@ class Bot(DesktopBot):
         time.sleep(1)
         pyautogui.press("enter")
         time.sleep(8)
-        while True:
-            if self.find("resources/Benner", matching=0.97, waiting_time=10000):
-                
-                break  
-            else:
-                self.not_found("resources/Benner")
         pyautogui.click(1166,355)
         time.sleep(2)
         self.kb_type('jefferson.leite')
@@ -73,13 +67,12 @@ class Bot(DesktopBot):
         time.sleep(1)
         self.enter()
         time.sleep(2)
-        
         pyautogui.hotkey('win','d')
         time.sleep(1)
         self.browse('https://web.whatsapp.com/')
         time.sleep(6)
-        if not self.find( "PesquisarConversa", matching=0.97, waiting_time=10000):
-           self.not_found("PesquisarConversa")
+        if not self.find( "Lupa", matching=0.97, waiting_time=10000):
+            self.not_found("Lupa")
         self.click()
         self.kb_type('Jefferson Pessoal')
         time.sleep(1)
@@ -119,4 +112,5 @@ class Bot(DesktopBot):
 
 if __name__ == '__main__':
     Bot.main()
+
 
