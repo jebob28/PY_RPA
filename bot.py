@@ -86,14 +86,21 @@ class Bot(DesktopBot):
             self.not_found("AbriNovoDocumento")
         self.click()
         
-        time.sleep(1)        
-        if not self.find( "AreaTrabalho", matching=0.97, waiting_time=10000):
-            self.not_found("AreaTrabalho")
+        time.sleep(1)   
+        if not self.find( "AreatrabalhoWin10", matching=0.97, waiting_time=10000):
+            self.not_found("AreatrabalhoWin10")
         self.click()
+        if not self.find( "AnalisePrecorteWhite", matching=0.97, waiting_time=10000):
+            self.not_found("AnalisePrecorteWhite")
+        self.click()
+             
+        #if not self.find( "AreaTrabalho", matching=0.97, waiting_time=10000):
+            #self.not_found("AreaTrabalho")
+        #self.click()
         time.sleep(1)
-        if not self.find( "Analise_AreaTrabalho", matching=0.97, waiting_time=10000):
-            self.not_found("Analise_AreaTrabalho")
-        self.click()
+        #if not self.find( "Analise_AreaTrabalho", matching=0.97, waiting_time=10000):
+            #self.not_found("Analise_AreaTrabalho")
+        #self.click()
         time.sleep(1)
         self.enter()
         time.sleep(1)
