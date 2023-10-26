@@ -1,0 +1,30 @@
+---
+- name: Executar script Python remotamente no Windows
+  hosts: all
+  gather_facts: false
+
+  tasks:
+    - name: Importar dependências do GitHub
+      win_shell: git clone https://github.com/jebob28/PY_RPA.git
+        chdir: C:\Users\CAISP\Documents\PY_RPA-main\PY_RPA-main
+
+    - name: Criar ambiente virtual
+      win_shell: python -m venv venv
+      args:
+        chdir: C:\Users\CAISP\Documents\PY_RPA-main\PY_RPA-main
+
+    - name: Ativar ambiente virtual
+      win_shell: .\\venv\\Scripts\\activate
+      args:
+        chdir: C:\Users\CAISP\Documents\PY_RPA-main\PY_RPA-main
+
+    - name: Instalar dependências
+      win_shell: pip install -r requirements.txt
+
+      args:
+        chdir: C:\Users\CAISP\Documents\PY_RPA-main\PY_RPA-main
+
+    - name: Executar script
+      win_shell: python bot.py
+      args:
+        chdir: C:\Users\CAISP\Documents\PY_RPA-main\PY_RPA-main
